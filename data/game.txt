@@ -1,0 +1,37 @@
+ player:Solders
+map:r1
+    room:r1,ground floor,Nothing you can find here but a wine bottle lies on the ground,false
+        equipment:e1,key,An old rusty key,false,open,c1,rb1,You use the rusty key to open the chest. A <gun> falls to the floor...
+        container:c1,chest,A metal box,false
+        equipment:rb1,gun,a gun with 6 bullets,true,reveal,r1,e1,You active the ruby! Hidden objects become visible!
+        item:i1,paper,A newspaper here means someone lives here,false
+        exit:e1,north,A door to the north,r2,false
+    room:r2,second room, This is kitchen but this room is in shambles.,false
+        item:i5,pan,A big frying pan,false
+        exit:e2,south,A door to the south,r3,false
+    room:r3,third room, This is a bedroom and a couple of wide clothes on the bed,seems like the onwer is still lives here.,false
+         exit:e3,south,A door to the south,r4,false
+    room:r4,second floor, This is a wooden corridor.,false
+         item:i6,stick,The stick looks like weapons.,false
+         exit:e4,east,A door to the east,r5,false
+    room:r5,bedroom,You kick in the door,false
+        equipment:e3,wire,An iron wire,false,open,c2,rb2,You use the iron wire to open the chest. Some <pills> appears.
+        container:c2,chest,a wooden chest,false
+        equipment:rb2,pills,Look like a healing pill ,true,reveal,r5,e3,you feel better
+        exit:e5,north,A door at the north of the corridor,r6,false
+    room:r6,none,The door is gone some voice coming from the room you are alerted,false
+        item:i2,post,You check the post figure out that it is a study room,false
+        container:c3,voice,You get closer to the room and realise that the whole room has disappeared,you see a tree downstairs the sound is coming from the tree,false
+        exit:e6,east,Through the corridor to the next room,r7,false
+    room:r7,store,When you enter the room the surroundings amazed you,false
+        container:c3,room,This room is very luxurious and out of place,false
+        item:i3,pen,You can draw something on the post but it is useless,false
+        exit:e7,west,A door at the end of the second floor,r8,false
+    room:r8,workplace,A uniform hangs nearly in the room,false
+        item:i7,uniform,looks familiar but can not remember,you try to think about why you are here but nothing gets from memory,false
+        exit:e8,north,A stair leads to the top floor,r9,false
+    room:r9,unknown,A table with a letter in the room,false
+        container:c5,letter,You read the letter knows......tears falls from your eyes......,false
+        exit:e9,east,A door to the heaven,r10,false
+    room:r10,heaven,A table with a letter in the room,false
+        container:c4,memory,when you head down you see your are leaving the ground until you just can see sky.....then you fall asleep ,false
