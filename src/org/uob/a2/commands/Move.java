@@ -29,12 +29,12 @@ public class Move extends Command {
             return "Moving towards " + this.value + "\n";
         }
 
-        return "No exit in that direction.";
+        return "No exit found in that direction.";
     }
 
     private Exit hasExit(Room currentRoom, String direction) {
         for (Exit exit : currentRoom.getExits()) {
-            if (exit.getName().equalsIgnoreCase(direction)) {
+            if (!exit.getHidden() && exit.getName().equalsIgnoreCase(direction)) {
                 return exit;
             }
         }

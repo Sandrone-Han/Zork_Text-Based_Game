@@ -1,0 +1,180 @@
+{
+  "player": "Soldier",
+  "initialRoomId": "ground-floor",
+  "rooms": [
+    {
+      "id": "ground-floor",
+      "name": "Ground Floor",
+      "description": "White smoke hangs in the air. A wine bottle lies beside a locked metal chest.",
+      "items": [
+        { "id": "newspaper", "name": "newspaper", "description": "A recent newspaper suggests that someone still lives here." }
+      ],
+      "containers": [
+        { "id": "metal-chest", "name": "chest", "description": "A scratched metal chest with a rusted lock." }
+      ],
+      "equipment": [
+        {
+          "id": "rusty-key",
+          "name": "key",
+          "description": "An old rusty key.",
+          "use": {
+            "action": "open",
+            "target": "metal-chest",
+            "result": "revolver",
+            "message": "The rusty key opens the chest. A revolver drops onto the floor."
+          }
+        },
+        {
+          "id": "revolver",
+          "name": "revolver",
+          "description": "An old revolver with six rounds.",
+          "hidden": true,
+          "use": {
+            "action": "inspect",
+            "target": "ground-floor",
+            "result": "ground-floor",
+            "message": "The cylinder turns smoothly; all six chambers are loaded."
+          }
+        }
+      ],
+      "exits": [
+        { "id": "ground-to-kitchen", "name": "north", "description": "A door leading north.", "targetRoom": "kitchen" }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Ruined Kitchen",
+      "description": "Broken cupboards and shattered plates cover the floor.",
+      "items": [
+        { "id": "frying-pan", "name": "pan", "description": "A heavy iron frying pan." }
+      ],
+      "exits": [
+        { "id": "kitchen-to-ground", "name": "south", "description": "The door back to the ground floor.", "targetRoom": "ground-floor" },
+        { "id": "kitchen-to-bedroom", "name": "east", "description": "A narrow doorway to a bedroom.", "targetRoom": "bedroom-one" }
+      ]
+    },
+    {
+      "id": "bedroom-one",
+      "name": "Abandoned Bedroom",
+      "description": "Clothes are scattered across an unmade bed, as if the owner left in a hurry.",
+      "exits": [
+        { "id": "bedroom-to-kitchen", "name": "west", "description": "The doorway back to the kitchen.", "targetRoom": "kitchen" },
+        { "id": "bedroom-to-corridor", "name": "north", "description": "Stairs climb toward a wooden corridor.", "targetRoom": "wooden-corridor" }
+      ]
+    },
+    {
+      "id": "wooden-corridor",
+      "name": "Wooden Corridor",
+      "description": "The floorboards creak beneath every step.",
+      "items": [
+        { "id": "wooden-stick", "name": "stick", "description": "A sturdy wooden stick that could serve as a tool or weapon." }
+      ],
+      "exits": [
+        { "id": "corridor-to-bedroom-one", "name": "south", "description": "The stairs descend to the bedroom.", "targetRoom": "bedroom-one" },
+        { "id": "corridor-to-bedroom-two", "name": "east", "description": "A damaged door opens into another bedroom.", "targetRoom": "bedroom-two" }
+      ]
+    },
+    {
+      "id": "bedroom-two",
+      "name": "Locked Bedroom",
+      "description": "Dust covers the furniture, but a wooden chest has recently been moved.",
+      "containers": [
+        { "id": "wooden-chest", "name": "chest", "description": "A wooden chest secured with a crude wire latch." }
+      ],
+      "equipment": [
+        {
+          "id": "iron-wire",
+          "name": "wire",
+          "description": "A short length of stiff iron wire.",
+          "use": {
+            "action": "open",
+            "target": "wooden-chest",
+            "result": "medicine",
+            "message": "The wire releases the latch. A bottle of medicine is hidden inside."
+          }
+        },
+        {
+          "id": "medicine",
+          "name": "medicine",
+          "description": "An unlabelled bottle of red pills.",
+          "hidden": true,
+          "use": {
+            "action": "inspect",
+            "target": "bedroom-two",
+            "result": "bedroom-two",
+            "message": "The faded label warns that the medicine may cause memory loss."
+          }
+        }
+      ],
+      "exits": [
+        { "id": "bedroom-two-to-corridor", "name": "west", "description": "The damaged door returns to the corridor.", "targetRoom": "wooden-corridor" },
+        { "id": "bedroom-two-to-study", "name": "north", "description": "A quiet passage leads toward a study.", "targetRoom": "study" }
+      ]
+    },
+    {
+      "id": "study",
+      "name": "Vanished Study",
+      "description": "The room's far wall is missing. Wind carries a voice from the courtyard below.",
+      "items": [
+        { "id": "warning-note", "name": "note", "description": "The note mentions an experiment conducted upstairs." }
+      ],
+      "containers": [
+        { "id": "distant-voice", "name": "voice", "description": "The voice repeats a name that feels strangely familiar." }
+      ],
+      "exits": [
+        { "id": "study-to-bedroom-two", "name": "south", "description": "The passage returns to the bedroom.", "targetRoom": "bedroom-two" },
+        { "id": "study-to-store", "name": "east", "description": "A service door opens into a storeroom.", "targetRoom": "store" }
+      ]
+    },
+    {
+      "id": "store",
+      "name": "Unusual Store",
+      "description": "The room is unexpectedly luxurious compared with the rest of the house.",
+      "items": [
+        { "id": "fountain-pen", "name": "pen", "description": "A fountain pen engraved with the initials S. K." }
+      ],
+      "containers": [
+        { "id": "display-case", "name": "case", "description": "An empty glass case stands under a bright lamp." }
+      ],
+      "exits": [
+        { "id": "store-to-study", "name": "west", "description": "The service door leads back to the study.", "targetRoom": "study" },
+        { "id": "store-to-workplace", "name": "north", "description": "A narrow stairway rises to a workplace.", "targetRoom": "workplace" }
+      ]
+    },
+    {
+      "id": "workplace",
+      "name": "Workplace",
+      "description": "A stained uniform hangs beside a desk covered in laboratory records.",
+      "items": [
+        { "id": "uniform", "name": "uniform", "description": "The name stitched onto the uniform is your own." }
+      ],
+      "exits": [
+        { "id": "workplace-to-store", "name": "south", "description": "The stairway descends to the storeroom.", "targetRoom": "store" },
+        { "id": "workplace-to-attic", "name": "north", "description": "A final staircase leads into the attic.", "targetRoom": "attic" }
+      ]
+    },
+    {
+      "id": "attic",
+      "name": "Attic Laboratory",
+      "description": "A table holds a sealed letter and the remains of a medical experiment.",
+      "containers": [
+        { "id": "sealed-letter", "name": "letter", "description": "The letter explains why your memories were erased." }
+      ],
+      "exits": [
+        { "id": "attic-to-workplace", "name": "south", "description": "The staircase returns to the workplace.", "targetRoom": "workplace" },
+        { "id": "attic-to-rooftop", "name": "east", "description": "A pale light shines through the rooftop door.", "targetRoom": "rooftop" }
+      ]
+    },
+    {
+      "id": "rooftop",
+      "name": "Rooftop",
+      "description": "Cold daylight breaks through the smoke. For the first time, you can see beyond the house.",
+      "containers": [
+        { "id": "recovered-memory", "name": "memory", "description": "Fragments of the experiment return as you look over the ruined city." }
+      ],
+      "exits": [
+        { "id": "rooftop-to-attic", "name": "west", "description": "The rooftop door leads back to the laboratory.", "targetRoom": "attic" }
+      ]
+    }
+  ]
+}

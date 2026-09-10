@@ -60,7 +60,7 @@ public class Get extends Command {
             }
         }
 
-        return "Nothing " + this.value + " to get.";
+        return "No " + this.value + " to get.";
     }
 
     @Override

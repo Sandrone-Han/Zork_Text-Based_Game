@@ -17,7 +17,7 @@ class CommandTypeTest {
         CommandType[] values = CommandType.values();
 
         // Validate that all expected CommandType values are present
-        boolean result = (values.length == 8) &&
+        boolean result = (values.length == 9) &&
                 (CommandType.MOVE == CommandType.valueOf("MOVE")) &&
                 (CommandType.USE == CommandType.valueOf("USE")) &&
                 (CommandType.GET == CommandType.valueOf("GET")) &&
@@ -25,7 +25,8 @@ class CommandTypeTest {
                 (CommandType.LOOK == CommandType.valueOf("LOOK")) &&
                 (CommandType.STATUS == CommandType.valueOf("STATUS")) &&
                 (CommandType.HELP == CommandType.valueOf("HELP")) &&
-                (CommandType.QUIT == CommandType.valueOf("QUIT"));
+                (CommandType.QUIT == CommandType.valueOf("QUIT")) &&
+                (CommandType.COMBINE == CommandType.valueOf("COMBINE"));
 
         System.out.println("AUTOMARK::CommandType.testEnumValues: " + (result ? "PASS" : "FAIL"));
 

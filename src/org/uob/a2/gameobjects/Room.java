@@ -79,7 +79,6 @@ public class Room extends GameObject {
 
 
     public void addItem(Item item) {
-        item.setHidden(false);
         this.items.add(item);
     }
 

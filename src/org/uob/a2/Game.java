@@ -12,7 +12,8 @@ import org.uob.a2.engine.GameEngine;
  */
 public class Game {
     public static void main(String[] args) {
-        GameEngine engine = new GameEngine("data/game.txt");
+        String gameDataPath = args.length > 0 ? args[0] : "data/game.json";
+        GameEngine engine = new GameEngine(gameDataPath);
         engine.start();
     }
 }

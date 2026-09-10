@@ -1,0 +1,17 @@
+# Build output
+out/
+target/
+*.class
+
+# IDE metadata
+.idea/
+*.iml
+.vscode/
+
+# Notebook and generated documentation artifacts
+.ipynb_checkpoints/
+docs.zip
+
+# OS files
+.DS_Store
+Thumbs.db

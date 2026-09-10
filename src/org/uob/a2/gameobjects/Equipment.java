@@ -18,7 +18,32 @@ public class Equipment extends GameObject implements Usable {
     }
 
     public String use(Container target, GameState gameState) {
-        return  "Using " + this.getName() + " on " + target.getName()+" You opened the chest!";
+        if (useInformation == null) {
+            return "This equipment cannot be used.";
+        }
+        if (useInformation.isUsed()) {
+            return "You have already used " + getName() + ".";
+        }
+        if (target == null || !useInformation.getTarget().equals(target.getId())) {
+            return "Invalid use target";
+        }
+
+        target.open();
+        Room room = gameState.getMap().getCurrentRoom();
+        GameObject revealed = findObject(room, useInformation.getResult());
+        if (revealed != null) {
+            revealed.setHidden(false);
+        }
+        useInformation.setUsed(true);
+        return useInformation.getMessage();
+    }
+
+    private GameObject findObject(Room room, String id) {
+        GameObject object = room.getItem(id);
+        if (object == null) object = room.getEquipment(id);
+        if (object == null) object = room.getFeature(id);
+        if (object == null) object = room.getExit(id);
+        return object;
     }
 
     @Override

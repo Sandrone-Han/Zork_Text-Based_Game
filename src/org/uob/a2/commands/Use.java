@@ -4,7 +4,6 @@ import org.uob.a2.events.GameEvent;
 import org.uob.a2.events.GameEventType;
 import org.uob.a2.gameobjects.Equipment;
 import org.uob.a2.gameobjects.Feature;
-import org.uob.a2.gameobjects.GameObject;
 import org.uob.a2.gameobjects.GameState;
 import org.uob.a2.gameobjects.Player;
 import org.uob.a2.gameobjects.Room;
@@ -35,7 +34,7 @@ public class Use extends Command {
             return "You have already used " + this.value;
         }
 
-        GameObject targetObject = null;
+        Feature targetObject = null;
 
         for (Feature feature : currentRoom.getFeatures()) {
             if (feature.getName().equalsIgnoreCase(this.target)) {
@@ -54,8 +53,11 @@ public class Use extends Command {
             return "Invalid use target";
         }
 
-        String result = useInfo.getMessage();
-        useInfo.setUsed(true);
+        if (!(targetObject instanceof org.uob.a2.gameobjects.Container container)) {
+            return "Invalid use target";
+        }
+
+        String result = equipment.use(container, gameState);
 
         gameState.getEventManager().notifyObservers(
                 new GameEvent(GameEventType.EQUIPMENT_USED,

@@ -40,7 +40,10 @@ public class GameEngine {
         boolean running = true;
 
         while (running) {
-            System.out.println(">> ");
+            System.out.print(">> ");
+            if (!scanner.hasNextLine()) {
+                break;
+            }
             String input = scanner.nextLine();
 
             try {
@@ -59,7 +62,6 @@ public class GameEngine {
                             new GameEvent(GameEventType.GAME_QUIT, "Player quit the game.", gameState)
                     );
 
-                    System.out.println("Signal interruption.......");
                     running = false;
                 }
 
@@ -81,12 +83,10 @@ public class GameEngine {
     }
 
     private void printIntroduction() {
-        System.out.println("You wake up after a loud bang,surrounded by white smoke," + "\n" +
-                "shadowed by a door and you open it." + "\n" +
-                "Fortunately you find a bag behind the door." + "\n" +
-                "Now you need to seach this house............"
+        System.out.println("You wake after a loud bang, surrounded by white smoke.\n" +
+                "A doorway emerges through the haze. Behind it, you find an abandoned bag.\n" +
+                "Search the house and discover what happened."
         );
-
-        System.out.println("Type to start: ");
+        System.out.println("Type 'help' to view the available commands.");
     }
 }
